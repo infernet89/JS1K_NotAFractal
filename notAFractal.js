@@ -9,7 +9,7 @@ window.addEventListener('resize', function(event){
 });
 setInterval(run, 23);
 var f=1-50/a.height;
-var mx,my;
+var mx,my,grd;
 a.addEventListener("mousemove", function (e) {
   mx=e.clientX;
   my=e.clientY+50;
@@ -69,11 +69,21 @@ function drawMouse()
   c.fill();
   c.translate(-mx,-my);
 }
+function drawButtons(o)
+{
+  //draw the button
+  c.fillStyle="#dddddd";
+  c.fillRect(o-1,4,42,42);
+  c.fillStyle="#888888";
+  c.fillRect(o,5,41,41);
+  c.fillStyle=grd;
+  c.fillRect(o,5,40,40);
+}
 //and this draw the JS1K shim, as is
 function drawShim()
 {
   //draw the shim box
-  var grd=c.createLinearGradient(0,0,0,50);
+  grd=c.createLinearGradient(0,0,0,50);
   grd.addColorStop(0,"#eaeaea");
   grd.addColorStop(1,"#d0d0d0");
   c.fillStyle=grd;
@@ -85,7 +95,10 @@ function drawShim()
   //c.fillRect(0,a.height-1,a.width,1);
 
   //draw the buttons
-  c.fillStyle="#dddddd";
+  drawButtons(11);
+  drawButtons(63);
+  drawButtons(115);
+  /*c.fillStyle="#dddddd";
   c.fillRect(10,4,42,42);
   c.fillStyle="#888888";
   c.fillRect(11,5,41,41);
@@ -104,7 +117,7 @@ function drawShim()
   c.fillStyle="#888888";
   c.fillRect(115,5,41,41);
   c.fillStyle=grd;
-  c.fillRect(115,5,40,40);
+  c.fillRect(115,5,40,40);*/
 
   //write the button text ↞ ↠ ↻
   c.fillStyle="Black";
@@ -115,29 +128,29 @@ function drawShim()
 
   //write the title
   c.font = "16px serif";
-  var offset=(a.width-166-752)/2;
-  if(offset<0) offset=0;
-  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1024 bytes — demo details — list of demos — js1k.com/NNNN",166+offset,20); //Lunga 752 px
+  var offset=(a.width-586)/2;
+  if(offset<166) offset=166;
+  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1024 bytes — demo details — list of demos — js1k.com/NNNN",offset,20); //Lunga 752 px
   
   //the dashed lines for links
   c.setLineDash([3]);
   c.beginPath();
-  c.moveTo(offset+166, 25);
-  c.lineTo(offset+166+31, 25);
-  c.moveTo(offset+166+35, 25);
-  c.lineTo(offset+166+35+32, 25);
-  c.moveTo(offset+166+432, 25);
-  c.lineTo(offset+166+432+81, 25);
-  c.moveTo(offset+166+538, 25);
-  c.lineTo(offset+166+538+81, 25);
-  c.moveTo(offset+166+643, 25);
-  c.lineTo(offset+166+643+110, 25);
+  c.moveTo(offset, 25);
+  c.lineTo(offset+31, 25);
+  c.moveTo(offset+35, 25);
+  c.lineTo(offset+67, 25);
+  c.moveTo(offset+432, 25);
+  c.lineTo(offset+513, 25);
+  c.moveTo(offset+538, 25);
+  c.lineTo(offset+619, 25);
+  c.moveTo(offset+643, 25);
+  c.lineTo(offset+753, 25);
   c.lineWidth = 2;
   c.stroke();
 
   //write the description
   c.font = "italic 16px serif";
-  offset=(a.width-166-179)/2;
-  if(offset<0) offset=0;
-  c.fillText("Trust me, i am not a fractal!",166+offset,42); //lunga 179
+  offset=(a.width-13)/2;
+  if(offset<166) offset=166;
+  c.fillText("Trust me, i am not a fractal!",offset,42); //lunga 179
 }
