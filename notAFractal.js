@@ -3,10 +3,10 @@ Refactor manuale variabili:
 a=canvas
 c=context del canvas
 */
-//if the window size change, we restart everything.
-window.addEventListener('resize', function(event){
+//if the window size change, we restart everything. (37B)
+/*window.addEventListener('resize', function(event){
   top.reload();
-});
+});*/
 setInterval(run, 23);
 var f=1-50/a.height;
 var mx,my,grd;
