@@ -7,38 +7,40 @@ c=context del canvas
 window.addEventListener('resize', function(event){
   top.reload();
 });
-var activeTask=setInterval(run, 23);
-var amount=(a.height-50)/a.height;
-var mx;
-var my;
-a.addEventListener("mousemove", function (evt) {
-  mx=evt.clientX;
-  my=evt.clientY+50;
+setInterval(run, 23);
+var f=1-50/a.height;
+var mx,my;
+a.addEventListener("mousemove", function (e) {
+  mx=e.clientX;
+  my=e.clientY+50;
 });
 a.style.cursor="none";
-//alert(amount);
+//alert(f);
 function run()
 {
-  //draw the background
-	c.fillStyle="Black";
-	c.fillRect(0,0,a.width,a.height);
-  //and a frame
+  //draw the background & frame
+  c.fillStyle="#e";
+  c.fillRect(0,0,a.width,a.height);
+	c.fillStyle="#000";
+	c.fillRect(1,0,a.width-2,a.height-1);
+  /*//and a frame
   c.fillStyle="#eeeeee";
   c.fillRect(0,0,1,a.height);
   c.fillRect(a.width-1,0,1,a.height);
-  c.fillRect(0,a.height-1,a.width,1);
+  c.fillRect(0,a.height-1,a.width,1);*/
 
   //scale and translate, for fractal effect
   c.save();
-  for(i=110;i--;)
+  for(i=98;i--;)
   {
-    c.translate((a.width-a.width*amount)/2,0);
-    c.scale(amount,amount);
+    c.translate((a.width-a.width*f)/2,0);
+    c.scale(f,f);
     drawShim();
     c.save();
     c.translate(0,50);
   }
-  for(i=111;i--;)
+  //draw mouses, inverted order
+  for(i=99;i--;)
   {
     drawMouse();
     c.restore();
@@ -48,10 +50,11 @@ function run()
   drawMouse();
   my+=50;
 }
+//this draw a really cool and realistic mouse pointer
 function drawMouse()
 {
   c.setLineDash([1,0])
-  c.fillStyle="White";
+  c.fillStyle="#FFF";
   c.translate(mx,my);
   c.beginPath();
   c.moveTo(0,0);
@@ -66,6 +69,7 @@ function drawMouse()
   c.fill();
   c.translate(-mx,-my);
 }
+//and this draw the JS1K shim, as is
 function drawShim()
 {
   //draw the shim box
@@ -76,8 +80,8 @@ function drawShim()
   c.fillRect(0,0, a.width, 50);
 
   //draw a frame (i bet is useful)
-  c.fillRect(0,0,1,a.height+500);
-  c.fillRect(a.width-1,0,1,a.height+500);
+  c.fillRect(0,0,1,a.height*2);
+  c.fillRect(a.width-1,0,1,a.height*2);
   //c.fillRect(0,a.height-1,a.width,1);
 
   //draw the buttons
@@ -118,16 +122,16 @@ function drawShim()
   //the dashed lines for links
   c.setLineDash([3]);
   c.beginPath();
-  c.moveTo(166+offset, 25);
-  c.lineTo(166+offset+31, 25);
-  c.moveTo(166+offset+35, 25);
-  c.lineTo(166+offset+35+32, 25);
-  c.moveTo(166+offset+432, 25);
-  c.lineTo(166+offset+432+81, 25);
-  c.moveTo(166+offset+538, 25);
-  c.lineTo(166+offset+538+81, 25);
-  c.moveTo(166+offset+643, 25);
-  c.lineTo(166+offset+643+110, 25);
+  c.moveTo(offset+166, 25);
+  c.lineTo(offset+166+31, 25);
+  c.moveTo(offset+166+35, 25);
+  c.lineTo(offset+166+35+32, 25);
+  c.moveTo(offset+166+432, 25);
+  c.lineTo(offset+166+432+81, 25);
+  c.moveTo(offset+166+538, 25);
+  c.lineTo(offset+166+538+81, 25);
+  c.moveTo(offset+166+643, 25);
+  c.lineTo(offset+166+643+110, 25);
   c.lineWidth = 2;
   c.stroke();
 
