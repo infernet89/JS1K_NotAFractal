@@ -72,9 +72,9 @@ function drawMouse()
 function drawButtons(o)
 {
   //draw the button
-  c.fillStyle="#dddddd";
+  c.fillStyle="#ddd";
   c.fillRect(o-1,4,42,42);
-  c.fillStyle="#888888";
+  c.fillStyle="#888";
   c.fillRect(o,5,41,41);
   c.fillStyle=grd;
   c.fillRect(o,5,40,40);
@@ -84,7 +84,7 @@ function drawShim()
 {
   //draw the shim box
   grd=c.createLinearGradient(0,0,0,50);
-  grd.addColorStop(0,"#eaeaea");
+  grd.addColorStop(0,"#eee");
   grd.addColorStop(1,"#d0d0d0");
   c.fillStyle=grd;
   c.fillRect(0,0, a.width, 50);
@@ -120,7 +120,7 @@ function drawShim()
   c.fillRect(115,5,40,40);*/
 
   //write the button text ↞ ↠ ↻
-  c.fillStyle="Black";
+  c.fillStyle="#000";
   c.font = "700 30px sans-serif";
   c.fillText("↞",18,36);
   c.fillText("↠",70,36);
