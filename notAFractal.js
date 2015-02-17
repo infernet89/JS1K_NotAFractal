@@ -43,7 +43,7 @@ function run()
     drawMouse();
     c.restore();
   }
-  c.restore();
+  //c.restore();
   //this plus hiding the real cursor, cost 35B
   my-=50;
   drawMouse();
