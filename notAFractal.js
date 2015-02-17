@@ -8,12 +8,9 @@ c=context del canvas
   top.reload();
 });*/
 setInterval(run, 23);
-var f=1-50/a.height;
-var mx,my,grd;
-a.addEventListener("mousemove", function (e) {
-  mx=e.clientX;
-  my=e.clientY+50;
-});
+var mx,my,grd,f=1-50/a.height;
+a.addEventListener("mousemove", function (e) { mx=e.clientX; my=e.clientY+50;});
+//a.addEventListener('mousemove',m);function m(e){mx=e.pageX;my=e.pageY+50}
 a.style.cursor="none";
 //alert(f);
 function run()
@@ -33,7 +30,8 @@ function run()
   c.save();
   for(i=98;i--;)
   {
-    c.translate((a.width-a.width*f)/2,0);
+    //c.translate((a.width-a.width*f)/2,0);
+    c.translate((1-f)*a.width/2,0);
     c.scale(f,f);
     drawShim();
     c.save();
@@ -46,6 +44,7 @@ function run()
     c.restore();
   }
   c.restore();
+  //this plus hiding the real cursor, cost 35B
   my-=50;
   drawMouse();
   my+=50;
@@ -136,8 +135,8 @@ function drawShim()
   c.setLineDash([3]);
   c.beginPath();
   c.moveTo(offset, 25);
-  c.lineTo(offset+31, 25);
-  c.moveTo(offset+35, 25);
+  c.lineTo(offset+31, 25); //both lines cost
+  c.moveTo(offset+35, 25); //only 6B
   c.lineTo(offset+67, 25);
   c.moveTo(offset+432, 25);
   c.lineTo(offset+513, 25);
