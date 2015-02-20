@@ -11,7 +11,7 @@ setInterval(run, 23);
 var mx,my,grd,f=1-50/a.height;
 a.addEventListener("mousemove", function (e) { mx=e.clientX; my=e.clientY+50;});
 //a.addEventListener('mousemove',m);function m(e){mx=e.pageX;my=e.pageY+50}
-a.style.cursor="none";
+//a.style.cursor="none";
 //alert(f);
 function run()
 {
@@ -44,10 +44,10 @@ function run()
     c.restore();
   }
   //c.restore();
-  //this plus hiding the real cursor, cost 35B
+  /*/this plus hiding the real cursor, cost 35B
   my-=50;
   drawMouse();
-  my+=50;
+  my+=50;*/
 }
 //this draw a really cool and realistic mouse pointer
 function drawMouse()
@@ -126,12 +126,12 @@ function drawShim()
   c.fillText("↻",122,36);
 
   //write the title
-  c.font = "16px serif";
   var offset=(a.width-586)/2;
   if(offset<166) offset=166;
-  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1024 bytes — demo details — list of demos — js1k.com/NNNN",offset,20); //Lunga 752 px
+  c.font = "16px serif";
+  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1024 bytes — demo details — list of demos — js1k.com/2159",offset,20); //Lunga 752 px
   
-  //the dashed lines for links
+  //the dashed lines for links (101B)
   c.setLineDash([3]);
   c.beginPath();
   c.moveTo(offset, 25);
@@ -143,13 +143,14 @@ function drawShim()
   c.moveTo(offset+538, 25);
   c.lineTo(offset+619, 25);
   c.moveTo(offset+643, 25);
-  c.lineTo(offset+753, 25);
+  //c.lineTo(offset+753, 25);
+  c.lineTo(offset+738, 25);
   c.lineWidth = 2;
   c.stroke();
 
   //write the description
-  c.font = "italic 16px serif";
   offset=(a.width-13)/2;
   if(offset<166) offset=166;
+  c.font = "italic 16px serif";
   c.fillText("Trust me, i am not a fractal!",offset,42); //lunga 179
 }
