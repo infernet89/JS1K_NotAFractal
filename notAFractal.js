@@ -109,7 +109,7 @@ function drawShim()
   var offset=(a.width-556)/2;
   if(offset<166) offset=166;
   c.font = "16px serif";
-  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1004 bytes — demo details — list of demos — js1k.com/2170",offset,20); //Lunga 752 px
+  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1004 bytes — demo details — list of demos — js1k.com/2177",offset,20); //Lunga 752 px
   
   //the dashed lines for links (101B)
   c.setLineDash([3]);
