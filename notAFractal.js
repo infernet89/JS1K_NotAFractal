@@ -97,26 +97,6 @@ function drawShim()
   drawButtons(11);
   drawButtons(63);
   drawButtons(115);
-  /*c.fillStyle="#dddddd";
-  c.fillRect(10,4,42,42);
-  c.fillStyle="#888888";
-  c.fillRect(11,5,41,41);
-  c.fillStyle=grd;
-  c.fillRect(11,5,40,40);
-
-  c.fillStyle="#dddddd";
-  c.fillRect(62,4,42,42);
-  c.fillStyle="#888888";
-  c.fillRect(63,5,41,41);
-  c.fillStyle=grd;
-  c.fillRect(63,5,40,40);
-
-  c.fillStyle="#dddddd";
-  c.fillRect(114,4,42,42);
-  c.fillStyle="#888888";
-  c.fillRect(115,5,41,41);
-  c.fillStyle=grd;
-  c.fillRect(115,5,40,40);*/
 
   //write the button text ↞ ↠ ↻
   c.fillStyle="#000";
@@ -126,10 +106,10 @@ function drawShim()
   c.fillText("↻",122,36);
 
   //write the title
-  var offset=(a.width-586)/2;
+  var offset=(a.width-556)/2;
   if(offset<166) offset=166;
   c.font = "16px serif";
-  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1024 bytes — demo details — list of demos — js1k.com/2159",offset,20); //Lunga 752 px
+  c.fillText("JS1k 2015 demo — \"Not a fractal\" by infernet89 — 1004 bytes — demo details — list of demos — js1k.com/2170",offset,20); //Lunga 752 px
   
   //the dashed lines for links (101B)
   c.setLineDash([3]);
